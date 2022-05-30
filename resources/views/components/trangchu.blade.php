@@ -90,13 +90,9 @@
                             Sản phẩm
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="">Mai Vàng cho thuê</a></li>
-                            <li><a class="dropdown-item" href="">Mai Vàng chậu</a></li>
-                            <li><a class="dropdown-item" href="">Mai Vườn</a></li>
-                            <li><a class="dropdown-item" href="">Mai Vàng giống</a></li>
-                            <li>
-                                <a class="dropdown-item" href="">Phân. thuốc cho cây Mai</a>
-                            </li>
+                            @foreach ($danhmuc as $item)
+                            <li><a class="dropdown-item" href="">{{$item->tendanhmuc}}</a></li> 
+                            @endforeach
                         </ul>
                     </li>
                 </ul>
@@ -117,13 +113,9 @@
                             <li id="active" class="list-group-item" aria-current="true">
                                 <i class="fas fa-bars"></i> Danh mục sản phẩm
                             </li>
-                            <li class="list-group-item"><a href="">Sản phẩm mới nhất</a></li>
-                            <li class="list-group-item"><a href="">Mai Vàng cho Thuê</a></li>
-                            <li class="list-group-item"><a href="">Mai Vàng Dáng BonSai</a></li>
-                            <li class="list-group-item"><a href="">Mai Vàng Chậu</a></li>
-                            <li class="list-group-item"><a href="">Mai Vàng giống</a></li>
-                            <li class="list-group-item"><a href="">Phân, Thuốc cho cây Mai</a></li>
-                            <li class="list-group-item"><a href="">Dự án và đề tài Mai Vàng</a></li>
+                            @foreach ($danhmuc as $item)
+                            <li class="list-group-item"><a href="">{{$item->tendanhmuc}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

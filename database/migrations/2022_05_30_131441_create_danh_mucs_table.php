@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('danh_mucs', function (Blueprint $table) {
             $table->id();
             $table->string('tendanhmuc');
-            $table->string('tongsanpham');
             $table->timestamps();
         });
     }
