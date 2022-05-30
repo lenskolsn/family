@@ -12,6 +12,7 @@
     <title>{{ $attributes['title'] }}</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
@@ -22,7 +23,6 @@
     <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="/vendors/selectFX/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="/vendors/jqvmap/dist/jqvmap.min.css">
-
 
     <link rel="stylesheet" href="/assets/css/style.css">
 
