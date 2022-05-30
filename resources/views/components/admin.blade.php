@@ -54,7 +54,7 @@
                         <a href=""> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href=""> <i class="menu-icon ti-email"></i>Danh mục</a>
+                        <a href="{{route('danhmuc.danhsach')}}"> <i class="menu-icon ti-email"></i>Danh mục</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"

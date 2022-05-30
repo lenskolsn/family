@@ -1,7 +1,7 @@
 <x-admin title="Danh mục">
     <div class="row">
         <div class="col-md-4">
-            <form action="{{route('danhmuc.luu')}}" method="post">
+            <form action="{{route('danhmuc.luu')}}" method="get">
                 @csrf
                 <x-input name="tendanhmuc" label="Tên danh mục" />
                 <button class="btn btn-dark mt-3">Thêm dữ liệu</button>
