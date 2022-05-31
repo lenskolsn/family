@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DanhMucController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SanPhamController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('trangchu');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dangnhap'])->name('admin.dangnhap');

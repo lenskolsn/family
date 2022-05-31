@@ -18,15 +18,18 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->tensanpham }}</td>
-                            <td>{{ $item->hinhanh }}</td>
-                            <td>{{ $item->gia }}</td>
+                            <td>
+                                <img src="/storage/sanpham/{{ $item->hinhanh }}" class="img-thumbnail" width="100"
+                                    alt="">
+                            </td>
+                            <td>{{number_format($item->gia)}}</td>
                             <td>{{ $item->mota }}</td>
-                            <td>{{ $item->chieucao }}</td>
+                            <td>{{ $item->chieucao }} cm</td>
                             <td class="text-center">
-                                <a href="" class="text-decoration btn btn-warning text-light"><i
-                                        class="fas fa-pen"></i></a>
-                                <a href="{{ route('sanpham.xoa', $item->id) }}" class="text-decoration btn btn-danger"><i
-                                        class="fas fa-trash"></i></a>
+                                <a href="{{ route('sanpham.sua', $item->id) }}"
+                                    class="text-decoration btn btn-warning text-light"><i class="fas fa-pen"></i></a>
+                                <a href="{{ route('sanpham.xoa', $item->id) }}"
+                                    class="text-decoration btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

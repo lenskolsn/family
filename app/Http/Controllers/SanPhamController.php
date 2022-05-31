@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DanhMuc;
 use App\Models\SanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use PHPUnit\Framework\Constraint\SameSize;
 
 class SanPhamController extends Controller
 {
@@ -17,7 +19,7 @@ class SanPhamController extends Controller
     {
         return view('admin.sanpham.them');
     }
-    function luu(Request $request)
+    function luu(Request $request, $id=null)
     {
         $data = $request->all();
         unset($data['_token']);
@@ -43,9 +45,14 @@ class SanPhamController extends Controller
             $data['hinhanh'] = $filename;
         }
 
-        $sanpham = SanPham::updateOrCreate($data);
+        $sanpham = SanPham::updateOrCreate(['id'=>$id],$data);
         $sanpham->save();
 
         return redirect()->route('sanpham.danhsach');
+    }
+    function sua($id=null){
+        $sanpham = SanPham::findOrFail($id);
+        $danhmuc = DanhMuc::all();
+        return view('admin.sanpham.sua',compact('sanpham','danhmuc'));
     }
 }

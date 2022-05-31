@@ -1,6 +1,6 @@
 <x-admin title="Thêm sản phẩm">
     <div class="row">
-        <form action="{{ route('sanpham.luu') }}" method="post">
+        <form action="{{ route('sanpham.luu') }}" method="post" enctype="multipart/form-data">
             <div class="col-md-6">
                 @csrf
                 <x-input name="tensanpham" label="Tên sản phẩm" />

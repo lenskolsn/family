@@ -5,7 +5,7 @@
     <title>{{ $attributes['title'] }}</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <link rel="icon" href="https://thumbs.dreamstime.com/b/flat-house-icon-vector-69856515.jpg" />
+    <link rel="icon" href="https://cdn.iconscout.com/icon/premium/png-256-thumb/house-1701-818513.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS v5.0.2 -->
@@ -47,13 +47,6 @@
                 </div>
                 <div class="col-md-5">
                     <div class="header_search">
-                        <select name="">
-                            <option value="">All</option>
-                            <option value="">Mai vàng chậu</option>
-                            <option value="">Mai vàng cho thuê</option>
-                            <option value="">Mai vườn</option>
-                            <option value="">Mai vàng giống</option>
-                        </select>
                         <input type="text" />
                         <button><i class="fas fa-search"></i></button>
                     </div>
@@ -91,7 +84,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @foreach ($danhmuc as $item)
-                            <li><a class="dropdown-item" href="">{{$item->tendanhmuc}}</a></li> 
+                                <li><a class="dropdown-item" href="">{{ $item->tendanhmuc }}</a></li>
                             @endforeach
                         </ul>
                     </li>
@@ -114,7 +107,7 @@
                                 <i class="fas fa-bars"></i> Danh mục sản phẩm
                             </li>
                             @foreach ($danhmuc as $item)
-                            <li class="list-group-item"><a href="">{{$item->tendanhmuc}}</a></li>
+                                <li class="list-group-item"><a href="">{{ $item->tendanhmuc }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -165,9 +158,7 @@
     </div>
     <section>
         <div class="container">
-            <div class="row">
-                {{ $slot }}
-            </div>
+            {{ $slot }}
         </div>
     </section>
     <!-- Bootstrap JavaScript Libraries -->

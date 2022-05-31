@@ -15,6 +15,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5322/5322033.png">
     <link rel="shortcut icon" href="favicon.ico">
 
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
@@ -118,18 +119,14 @@
         </header><!-- /header -->
         <!-- Header-->
 
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <span class="badge bg-dark">{{ $attributes['title'] }}</span>
-                    </div>
-                </div>
-            </div>
+        <div class="col-md-12">
+            <span class="badge bg-dark">{{ $attributes['title'] }}</span>   
         </div>
-
-        <div class="content mt-3 bg-white">
-            {{ $slot }}
+        
+        <div class="content mt-3">
+            <div class="col-md-12 bg-white rounded-1 shadow-sm">
+                {{ $slot }}
+            </div>
         </div> <!-- .content -->
     </div><!-- /#right-panel -->
 
