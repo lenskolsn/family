@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DanhMucController;
+use App\Http\Controllers\SanPhamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +20,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dangnhap'])->name('admin.dangnhap');
-    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::post('/', [AdminController::class, 'luu_dangnhap'])->name('admin.luu_dangnhap');
 
-    Route::prefix('danhmuc')->group(function(){
-        Route::get('/', [DanhMucController::class,'index'])->name('danhmuc.danhsach');
-        Route::post('/luu/{id?}', [DanhMucController::class,'luu'])->name('danhmuc.luu');
-        Route::get('/sua/{id?}', [DanhMucController::class,'sua'])->name('danhmuc.sua');
-        Route::get('/xoa/{id?}', [DanhMucController::class,'xoa'])->name('danhmuc.xoa');
+    Route::get('/dangky', [AdminController::class, 'dangky'])->name('admin.dangky');
+    Route::post('/dangky', [AdminController::class, 'luu_dangky'])->name('admin.luu_dangky');
+
+    Route::get('/dangxuat', [AdminController::class, 'dangxuat'])->name('admin.dangxuat');
+
+    Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('auth');
+
+    Route::prefix('danhmuc')->middleware('auth')->group(function () {
+        Route::get('/', [DanhMucController::class, 'index'])->name('danhmuc.danhsach');
+        Route::post('/luu/{id?}', [DanhMucController::class, 'luu'])->name('danhmuc.luu');
+        Route::get('/sua/{id?}', [DanhMucController::class, 'sua'])->name('danhmuc.sua');
+        Route::get('/xoa/{id?}', [DanhMucController::class, 'xoa'])->name('danhmuc.xoa');
+    });
+
+    Route::prefix('sanpham')->middleware('auth')->group(function () {
+        Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.danhsach');
+        Route::get('/them', [SanPhamController::class, 'them'])->name('sanpham.them');
+        Route::post('/luu/{id?}', [SanPhamController::class, 'luu'])->name('sanpham.luu');
+        Route::get('/sua/{id?}', [SanPhamController::class, 'sua'])->name('sanpham.sua');
+        Route::get('/xoa/{id?}', [SanPhamController::class, 'xoa'])->name('sanpham.xoa');
     });
 });

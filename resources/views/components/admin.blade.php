@@ -18,6 +18,7 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -44,7 +45,7 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="/images/logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./">Hi! {{Auth::user()->name}}</a>
                 <a class="navbar-brand hidden" href="./"><img src="/images/logo2.png" alt="Logo"></a>
             </div>
 
@@ -57,12 +58,12 @@
                         <a href="{{route('danhmuc.danhsach')}}"> <i class="menu-icon ti-email"></i>Danh mục</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Sản phẩm</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="">Danh sách</a>
+                            <li><i class="menu-icon fa fa-line-chart"></i><a href="{{route('sanpham.danhsach')}}">Danh sách</a>
                             </li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="">Thêm mới</a></li>
+                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{route('sanpham.them')}}">Thêm mới</a></li>
                         </ul>
                     </li>
 
@@ -102,18 +103,13 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="/images/admin.jpg" alt="User Avatar">
+                            <img class="rounded-circle img-thumbnail" width="40" src="/storage/avatar/{{Auth::user()->avatar}}">
                         </a>
 
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span
-                                    class="count">13</span></a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                            <a class="nav-link" href="{{route('admin.dangxuat')}}"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
                 </div>
@@ -126,22 +122,13 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>{{ $attributes['title'] }}</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active">{{ $attributes['title'] }}</li>
-                        </ol>
+                        <span class="badge bg-dark">{{ $attributes['title'] }}</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="content mt-3">
+        <div class="content mt-3 bg-white">
             {{ $slot }}
         </div> <!-- .content -->
     </div><!-- /#right-panel -->

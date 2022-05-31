@@ -1,0 +1,8 @@
+<?php
+    $label = $attributes['label'];
+    $name = $attributes['name'];
+?>
+<div class="form-group">
+    <label for="{{$name}}">{{$label}}</label>
+    <textarea class="form-control" id="{{$name}}" name="{{$name}}" rows="3"></textarea>
+</div>

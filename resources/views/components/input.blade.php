@@ -12,4 +12,4 @@
 </div>
 @error($name)
     <p class="text-danger">{{$message}}</p>
-@endif
+@enderror
