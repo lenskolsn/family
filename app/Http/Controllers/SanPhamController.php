@@ -12,14 +12,14 @@ class SanPhamController extends Controller
 {
     function index()
     {
-        $sanpham = SanPham::all();
+        $sanpham = SanPham::orderByDesc('id')->get();
         return view('admin.sanpham.index', compact('sanpham'));
     }
     function them()
     {
         return view('admin.sanpham.them');
     }
-    function luu(Request $request, $id=null)
+    function luu(Request $request, $id = null)
     {
         $data = $request->all();
         unset($data['_token']);
@@ -45,14 +45,25 @@ class SanPhamController extends Controller
             $data['hinhanh'] = $filename;
         }
 
-        $sanpham = SanPham::updateOrCreate(['id'=>$id],$data);
+        $sanpham = SanPham::updateOrCreate(['id' => $id], $data);
         $sanpham->save();
 
         return redirect()->route('sanpham.danhsach');
     }
-    function sua($id=null){
+    function sua($id = null)
+    {
         $sanpham = SanPham::findOrFail($id);
         $danhmuc = DanhMuc::all();
-        return view('admin.sanpham.sua',compact('sanpham','danhmuc'));
+        return view('admin.sanpham.sua', compact('sanpham', 'danhmuc'));
+    }
+    function chitiet($id = null)
+    {
+        $sanpham = SanPham::findOrFail($id);
+        return view('admin.sanpham.chitiet', compact('sanpham'));
+    }
+    function xoa($id = null)
+    {
+        SanPham::destroy($id);
+        return back();
     }
 }

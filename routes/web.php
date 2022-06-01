@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('trangchu');
+Route::prefix('/')->group(function () {
+    Route::get('/', [HomeController::class, 'index'])->name('trangchu');
+    Route::get('/chitietsanpham/{id?}', [HomeController::class, 'chitietsanpham'])->name('trangchu.chitietsanpham');
+});
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dangnhap'])->name('admin.dangnhap');
@@ -42,6 +45,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/them', [SanPhamController::class, 'them'])->name('sanpham.them');
         Route::post('/luu/{id?}', [SanPhamController::class, 'luu'])->name('sanpham.luu');
         Route::get('/sua/{id?}', [SanPhamController::class, 'sua'])->name('sanpham.sua');
+        Route::get('/chitiet/{id?}', [SanPhamController::class, 'chitiet'])->name('sanpham.chitiet');
         Route::get('/xoa/{id?}', [SanPhamController::class, 'xoa'])->name('sanpham.xoa');
     });
 });

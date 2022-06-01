@@ -7,7 +7,11 @@
                 <x-select-danhmuc />
                 <x-input name="gia" label="Giá" />
                 <x-input name="chieucao" label="Chiều cao (cm)" />
-                <x-textarea name="mota" label="Mô tả" />
+                {{-- <x-textarea name="mota" label="Mô tả" /> --}}
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Mô tả</label>
+                    <textarea name="mota" id="editor1"></textarea>
+                </div>
                 @error('mota')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

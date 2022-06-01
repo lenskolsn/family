@@ -20,13 +20,11 @@
     <div class="top">
         <div class="container">
             <div class="row p-1">
-                <div class="col-md-6 text-light">
-                    <i class="fas fa-phone"></i>
-                    <span>0819817373</span>
-                    <i class="fas fa-phone"></i>
-                    <span>0354632349 (Nam Lê)</span>
+                <div class="col-lg-8 col-6 text-light">
+                    <span><i class="fas fa-phone"></i> 0819817373</span>
+                    <span><i class="fas fa-phone"></i> 0354632349 (Nam Lê)</span>
                 </div>
-                <div class="col-md-6 text-light text-end">
+                <div class="col-lg-4 col-6 text-light text-end">
                     <span>Liên hệ:</span>
                     <span class="ms-2"><a href="https://www.facebook.com/LenskoLSN/" class="text-light"><i
                                 class="fab fa-facebook"></i></a></span>
@@ -37,17 +35,18 @@
         </div>
     </div>
     <!-- Header -->
-    <header>
+    <header class="bg-white">
         <div class="container">
-            <div class="row">
+            <div class="row py-2">
                 <div class="col-md-3">
                     <div class="header_logo">
-                        <img src="http://maivangtet.com/wp-content/uploads/2021/10/maivangtet-300x100-1.png" alt="" />
+                        <a href=""><img src="http://maivangtet.com/wp-content/uploads/2021/10/maivangtet-300x100-1.png"
+                                alt="" /></a>
                     </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 py-2">
                     <div class="header_search">
-                        <input type="text" />
+                        <input type="text" placeholder="Nhập từ khóa để tìm kiếm..." style="font-size: 15px;" />
                         <button><i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -72,7 +71,7 @@
             <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="">Trang chủ</a>
+                        <a class="nav-link active" href="{{ route('trangchu') }}">Trang chủ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Giới thiệu</a>
@@ -97,70 +96,49 @@
         </div>
     </nav>
     <!-- Category and Banner -->
-    <section id="">
-        <div class="container">
-            <div class="row py-2">
-                <div class="col-md-3">
-                    <div class="category">
-                        <ul class="list-group">
-                            <li id="active" class="list-group-item" aria-current="true">
-                                <i class="fas fa-bars"></i> Danh mục sản phẩm
-                            </li>
-                            @foreach ($danhmuc as $item)
-                                <li class="list-group-item"><a href="">{{ $item->tendanhmuc }}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="banner">
-                        <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="10000">
-                                    <img src="https://maivangtet.com/wp-content/uploads/2021/10/mai-vang-tet-1536x590.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item" data-bs-interval="2000">
-                                    <img src="https://maivangtet.com/wp-content/uploads/2021/10/panel-mai-vang-tet-binh-loi-1536x590.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="new_product bg-light">
-        <div class="container">
-            <div class="row py-3">
-                <h4>SẢN PHẨM MỚI NHẤT</h4>
-            </div>
-        </div>
-    </div>
     <section>
-        <div class="container">
+        <div class="container bg-white my-3 p-3 shadow-sm">
             {{ $slot }}
         </div>
     </section>
+    <footer class="border bg-white border-1 shadow-sm">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-md-4">
+                    <p class="h5 fw-bold">VƯỜN MAI PHÚ THUẬN A</p>
+                    <p class="text-secondary">Chuyên cung cấp Mai vàng sỉ & lẻ
+                        Dịch vụ cho thuê Mai vàng chưng tết 2022 uy tín</p>
+                    <p class="text-secondary">Nhận chăm sóc Mai vàng sau tết.</p>
+                    <ul class="text-secondary">
+                        <li>Địa chỉ: Ấp phú hòa B, xã Phú Thuận A, huyện Hồng Ngự, tỉnh Đồng Tháp</li>
+                        <li>Điện thoại: <i class="fas fa-phone"></i> 0819817373 <i class="fas fa-phone"></i>
+                            0354632349 (Nam Lê)</li>
+                        <li>Email: lnam6507@gmail.com</li>
+                        <li>Website: vuonmaiphuthuan.com</li>
+                        <li>Facebook: <a
+                                href="https://www.facebook.com/LenskoLSN/">https://www.facebook.com/LenskoLSN/</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <p class="h5 fw-bold">Fanpage của chúng tôi</p>
+                    <div class="fb-page m-auto" data-href="https://www.facebook.com/NCSfanmade" data-tabs="timeline"
+                        data-width="" data-height="" data-small-header="false" data-adapt-container-width="true"
+                        data-hide-cover="false" data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/NCSfanmade" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/NCSfanmade">LSN</a></blockquote>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <p class="h5 fw-bold">BẢN ĐỒ VƯỜN MAI PHÚ THUẬN A</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4681.049348619204!2d105.28258696600258!3d10.724142865298857!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310a3b0dfa8ad30f%3A0x7a3e09bfb39d8cba!2zVsaw4budbiBNYWkgUGjDuiBUaHXhuq1uIEE!5e1!3m2!1svi!2s!4v1654075111809!5m2!1svi!2s"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <p class="text-center py-3 m-0 text-light" style="background: rgb(61, 184, 75);">VƯỜN MAI PHÚ THUẬN A</p>
+    </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
@@ -168,6 +146,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0&appId=238683943543481&autoLogAppEvents=1"
+        nonce="JxBedrik"></script>
 </body>
 
 </html>

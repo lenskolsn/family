@@ -9,4 +9,7 @@ class DanhMuc extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function sanpham(){
+        return $this->hasMany(SanPham::class, 'id_danhmuc', 'id');
+    }
 }

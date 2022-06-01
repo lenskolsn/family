@@ -19,7 +19,8 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/vendors/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -30,6 +31,8 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 
 </head>
 
@@ -46,7 +49,7 @@
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./">Hi! {{Auth::user()->name}}</a>
+                <a class="navbar-brand" href="./">Hi! {{ Auth::user()->name }}</a>
                 <a class="navbar-brand hidden" href="./"><img src="/images/logo2.png" alt="Logo"></a>
             </div>
 
@@ -56,15 +59,17 @@
                         <a href=""> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="{{route('danhmuc.danhsach')}}"> <i class="menu-icon ti-email"></i>Danh mục</a>
+                        <a href="{{ route('danhmuc.danhsach') }}"> <i class="menu-icon ti-email"></i>Danh mục</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Sản phẩm</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="{{route('sanpham.danhsach')}}">Danh sách</a>
+                            <li><i class="menu-icon fa fa-line-chart"></i><a href="{{ route('sanpham.danhsach') }}">Danh
+                                    sách</a>
                             </li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{route('sanpham.them')}}">Thêm mới</a></li>
+                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ route('sanpham.them') }}">Thêm
+                                    mới</a></li>
                         </ul>
                     </li>
 
@@ -104,13 +109,15 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="rounded-circle img-thumbnail" width="40" src="/storage/avatar/{{Auth::user()->avatar}}">
+                            <img class="rounded-circle img-thumbnail" width="40"
+                                src="/storage/avatar/{{ Auth::user()->avatar }}">
                         </a>
 
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
 
-                            <a class="nav-link" href="{{route('admin.dangxuat')}}"><i class="fa fa-power-off"></i> Logout</a>
+                            <a class="nav-link" href="{{ route('admin.dangxuat') }}"><i
+                                    class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
                 </div>
@@ -120,9 +127,9 @@
         <!-- Header-->
 
         <div class="col-md-12">
-            <span class="badge bg-dark">{{ $attributes['title'] }}</span>   
+            <span class="badge bg-dark">{{ $attributes['title'] }}</span>
         </div>
-        
+
         <div class="content mt-3">
             <div class="col-md-12 bg-white rounded-1 shadow-sm">
                 {{ $slot }}
@@ -144,6 +151,9 @@
     <script src="/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
     <script>
         (function($) {
             "use strict";

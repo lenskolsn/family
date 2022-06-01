@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+body{
+    font-family: 'Barlow', sans-serif;
+    background: #f8f8f8;
+}
 a{
     text-decoration: none;
 }
@@ -40,7 +45,7 @@ header .container .row{
     width: 90%;
     padding: 0 10px;
     border: none;
-    background-color: none;
+    background: none;
     outline: none;
 }
 .header_search button{
@@ -74,4 +79,30 @@ section .category ul li:hover{
 .new_product h4{
     text-align: center;
     color: rgb(61, 184, 75);
+}
+/* Product */
+.product{
+    transition: .5s;
+}
+.product:hover{
+    box-shadow: 0 0 10px #dadada;
+}
+.product_img{
+    overflow: hidden;
+}
+.product_img img{
+    transition: .5s;
+}
+.product_img img:hover{
+    transform: scale(1.07);
+}
+.hotline{
+    border: 2px dotted red;
+    font-size: 15px;
+    padding: 10px;
+}
+.thongtincuahang{
+    border: 2px dotted blue;
+    font-size: 15px;
+    padding: 10px;
 }

@@ -9,4 +9,8 @@ class SanPham extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function danhmuc()
+    {
+        return $this->hasOne(DanhMuc::class, 'id', 'id_danhmuc');
+    }
 }

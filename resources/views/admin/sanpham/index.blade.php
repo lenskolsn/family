@@ -8,8 +8,9 @@
                         <th>Tên sản phẩm</th>
                         <th>Hình ảnh</th>
                         <th>Giá</th>
-                        <th>Mô tả</th>
+                        {{-- <th>Mô tả</th> --}}
                         <th>Chiều cao</th>
+                        <th>Danh mục</th>
                         <th class="text-center">Hành động</th>
                     </tr>
                 </thead>
@@ -22,10 +23,13 @@
                                 <img src="/storage/sanpham/{{ $item->hinhanh }}" class="img-thumbnail" width="100"
                                     alt="">
                             </td>
-                            <td>{{number_format($item->gia)}}</td>
-                            <td>{{ $item->mota }}</td>
+                            <td>{{ number_format($item->gia) }}</td>
+                            {{-- <td>{!!$item->mota!!}</td> --}}
                             <td>{{ $item->chieucao }} cm</td>
+                            <td>{{ $item->danhmuc->tendanhmuc }}</td>
                             <td class="text-center">
+                                <a href="{{ route('sanpham.chitiet', $item->id) }}"
+                                    class="text-decoration btn btn-primary text-light"><i class="fas fa-eye"></i></a>
                                 <a href="{{ route('sanpham.sua', $item->id) }}"
                                     class="text-decoration btn btn-warning text-light"><i class="fas fa-pen"></i></a>
                                 <a href="{{ route('sanpham.xoa', $item->id) }}"
