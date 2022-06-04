@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'khachhang' => [
+            'driver' => 'session',
+            'provider' => 'khach_hangs',
+        ],
     ],
 
     /*
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'khach_hangs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\KhachHang::class,
         ],
 
         // 'users' => [
@@ -89,6 +97,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'khach_hangs' => [
+            'provider' => 'khach_hangs',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

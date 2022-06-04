@@ -13,6 +13,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    @yield('login_khachhang')
 </head>
 
 <body>
@@ -40,22 +41,35 @@
             <div class="row py-2">
                 <div class="col-md-3">
                     <div class="header_logo">
-                        <a href=""><img src="http://maivangtet.com/wp-content/uploads/2021/10/maivangtet-300x100-1.png"
+                        <a href="{{route('trangchu')}}"><img src="http://maivangtet.com/wp-content/uploads/2021/10/maivangtet-300x100-1.png"
                                 alt="" /></a>
                     </div>
                 </div>
                 <div class="col-md-5 py-2">
-                    <div class="header_search">
-                        <input type="text" placeholder="Nhập từ khóa để tìm kiếm..." style="font-size: 15px;" />
-                        <button><i class="fas fa-search"></i></button>
-                    </div>
+                    <form action="{{ route('trangchu.trangtimkiem') }}">
+                        <div class="header_search">
+                            <input type="text" name="key" placeholder="Nhập từ khóa để tìm kiếm..."
+                                style="font-size: 15px;" />
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-3 d-flex justify-content-end">
-                    <div class="header_login">
-                        <a href="" class="text-dark">ĐĂNG NHẬP</a>
+                    <div class="header_login fw-bold">
+                        @if (Auth::guard('khachhang')->check())
+                            <a style="font-size: 14px;" href="{{route('trangchu.thongtin')}}" class="text-dark"><span class="fw-bold">Hi!
+                                    {{ Auth::guard('khachhang')->user()->name }}</span> /</a>
+                            <a style="font-size: 14px;" href="{{ route('trangchu.dangxuat') }}"
+                                class="text-dark">ĐĂNG XUẤT /</a>
+                        @else
+                            <a style="font-size: 14px;" href="{{ route('trangchu.dangky') }}"
+                                class="text-dark">ĐĂNG KÝ /</a>
+                            <a style="font-size: 14px;" href="{{ route('trangchu.dangnhap') }}"
+                                class="text-dark">ĐĂNG NHẬP</a>
+                        @endif
                     </div>
-                    <div class="header_cart ms-2">
-                        <a href="">GIỎ HÀNG <i class="fas fa-shopping-cart"></i></a>
+                    <div class="header_cart ms-2 fw-bold">
+                        <a style="font-size: 14px;" href="">GIỎ HÀNG <i class="fas fa-shopping-cart"></i></a>
                     </div>
                 </div>
             </div>
@@ -74,7 +88,7 @@
                         <a class="nav-link active" href="{{ route('trangchu') }}">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Giới thiệu</a>
+                        <a class="nav-link" href="{{ route('trangchu.gioithieu') }}">Giới thiệu</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
@@ -83,9 +97,17 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @foreach ($danhmuc as $item)
-                                <li><a class="dropdown-item" href="">{{ $item->tendanhmuc }}</a></li>
+                                <li><a class="dropdown-item"
+                                        href="{{ route('trangchu.danhmucsanpham', $item->id) }}">{{ $item->tendanhmuc }}</a>
+                                </li>
                             @endforeach
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('trangchu.baiviet') }}">Bài viết</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('trangchu.lienhe') }}">Liên hệ</a>
                     </li>
                 </ul>
                 <div class="contact">

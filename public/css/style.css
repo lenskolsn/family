@@ -101,6 +101,9 @@ section .category ul li:hover{
     font-size: 15px;
     padding: 10px;
 }
+.img_thumbnail img{
+    cursor: pointer;
+}
 .thongtincuahang{
     border: 2px dotted blue;
     font-size: 15px;

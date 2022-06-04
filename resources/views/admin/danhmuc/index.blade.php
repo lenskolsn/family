@@ -1,7 +1,7 @@
 <x-admin title="Danh mục">
     <div class="row">
         <div class="col-md-4">
-            <form action="{{route('danhmuc.luu')}}" method="post">
+            <form action="{{ route('danhmuc.luu') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <x-input name="tendanhmuc" label="Tên danh mục" />
                 <button class="btn btn-dark mt-3">Thêm dữ liệu</button>
@@ -19,15 +19,17 @@
                 </thead>
                 <tbody>
                     @foreach ($danhmuc as $item)
-                    <tr>
-                        <td>{{$item->id}}</td>
-                        <td>{{$item->tendanhmuc}}</td>
-                        <td></td>
-                        <td class="text-center">
-                            <a href="" class="text-decoration btn btn-warning text-light"><i class="fas fa-pen"></i></a>
-                            <a href="{{route('danhmuc.xoa',$item->id)}}" class="text-decoration btn btn-danger"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->tendanhmuc }}</td>
+                            <td></td>
+                            <td class="text-center">
+                                <a href="{{route('danhmuc.sua',$item->id)}}" class="text-decoration btn btn-warning text-light"><i
+                                        class="fas fa-pen"></i></a>
+                                <a href="{{ route('danhmuc.xoa', $item->id) }}" class="text-decoration btn btn-danger"><i
+                                        class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>

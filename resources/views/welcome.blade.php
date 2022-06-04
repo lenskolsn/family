@@ -9,7 +9,9 @@
                                 <i class="fas fa-bars"></i> Danh mục sản phẩm
                             </li>
                             @foreach ($danhmuc as $item)
-                                <li class="list-group-item"><a href="">{{ $item->tendanhmuc }}</a></li>
+                                <li class="list-group-item"><a
+                                        href="{{ route('trangchu.danhmucsanpham', $item->id) }}">{{ $item->tendanhmuc }}</a>
+                                </li>
                             @endforeach
                         </ul>
                     </div>

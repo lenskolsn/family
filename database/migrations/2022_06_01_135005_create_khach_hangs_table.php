@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('banners', function (Blueprint $table) {
+        Schema::create('khach_hangs', function (Blueprint $table) {
             $table->id();
-            $table->string('hinhanh');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
+            $table->boolean('male');
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('khach_hangs');
     }
 };

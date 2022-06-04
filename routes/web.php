@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DanhMucController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\SanPhamController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('trangchu');
+    Route::get('/gioithieu/{id?}', [HomeController::class, 'gioithieu'])->name('trangchu.gioithieu');
+    Route::get('/baiviet/{id?}', [HomeController::class, 'baiviet'])->name('trangchu.baiviet');
+    Route::get('/lienhe/{id?}', [HomeController::class, 'lienhe'])->name('trangchu.lienhe');
+    Route::get('/thongtin/{id?}', [HomeController::class, 'thongtin'])->name('trangchu.thongtin');
     Route::get('/chitietsanpham/{id?}', [HomeController::class, 'chitietsanpham'])->name('trangchu.chitietsanpham');
+    Route::get('/danhmucsanpham/{id?}', [HomeController::class, 'danhmucsanpham'])->name('trangchu.danhmucsanpham');
+    Route::get('/trangtimkiem/{id?}', [HomeController::class, 'trangtimkiem'])->name('trangchu.trangtimkiem');
+
+    Route::get('/dangnhap', [KhachHangController::class, 'dangnhap'])->name('trangchu.dangnhap');
+    Route::post('/dangnhap', [KhachHangController::class, 'luu_dangnhap'])->name('trangchu.luu_dangnhap');
+    Route::get('/dangky', [KhachHangController::class, 'dangky'])->name('trangchu.dangky');
+    Route::post('/dangky', [KhachHangController::class, 'luu_dangky'])->name('trangchu.luu_dangky');
+    Route::get('/dangxuat', [KhachHangController::class, 'dangxuat'])->name('trangchu.dangxuat');
 });
 
 Route::prefix('admin')->group(function () {

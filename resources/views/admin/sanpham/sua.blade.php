@@ -19,10 +19,12 @@
                 @error('id_danhmuc')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-
                 <x-input name="gia" value="{{ $sanpham->gia }}" label="Giá" />
                 <x-input name="chieucao" value="{{ $sanpham->chieucao }}" label="Chiều cao (cm)" />
-                <x-textarea name="mota" value="{{ $sanpham->mota }}" label="Mô tả" />
+                <div class="form-group mt-3">
+                    <label for="" class="form-label">Mô tả</label>
+                    <textarea name="mota" id="editor1">{!! $sanpham->mota !!}</textarea>
+                </div>
                 @error('mota')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
