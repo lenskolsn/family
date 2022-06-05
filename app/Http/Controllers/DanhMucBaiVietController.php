@@ -39,8 +39,9 @@ class DanhMucBaiVietController extends Controller
     {
         return view('');
     }
-    function xoa()
+    function xoa($id = null)
     {
-        return view('');
+        DanhMucBaiViet::destroy($id);
+        return back()->with('message', 'Xóa danh mục thành công');
     }
 }

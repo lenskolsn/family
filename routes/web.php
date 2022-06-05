@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BaiVietController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\DanhMucBaiVietController;
 use App\Http\Controllers\DanhMucController;
@@ -81,5 +82,14 @@ Route::prefix('admin')->group(function () {
         Route::get('/sua/{id?}', [DanhMucBaiVietController::class, 'sua'])->name('danhmucbaiviet.sua');
         Route::get('/chitiet/{id?}', [DanhMucBaiVietController::class, 'chitiet'])->name('danhmucbaiviet.chitiet');
         Route::get('/xoa/{id?}', [DanhMucBaiVietController::class, 'xoa'])->name('danhmucbaiviet.xoa');
+    });
+
+    Route::prefix('bai-viet')->middleware('auth')->group(function () {
+        Route::get('/', [BaiVietController::class, 'index'])->name('baiviet.danhsach');
+        Route::get('/them', [BaiVietController::class, 'them'])->name('baiviet.them');
+        Route::post('/luu/{id?}', [BaiVietController::class, 'luu'])->name('baiviet.luu');
+        Route::get('/sua/{id?}', [BaiVietController::class, 'sua'])->name('baiviet.sua');
+        Route::get('/chitiet/{id?}', [BaiVietController::class, 'chitiet'])->name('baiviet.chitiet');
+        Route::get('/xoa/{id?}', [BaiVietController::class, 'xoa'])->name('baiviet.xoa');
     });
 });

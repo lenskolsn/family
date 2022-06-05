@@ -85,10 +85,10 @@
                                     mục bài viết</a>
                             </li>
                             <li><i class="menu-icon fa fa-line-chart"></i><a
-                                    href="{{ route('sanpham.danhsach') }}">Danh
+                                    href="{{ route('baiviet.danhsach') }}">Danh
                                     sách</a>
                             </li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ route('sanpham.them') }}">Thêm
+                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ route('baiviet.them') }}">Thêm
                                     mới</a></li>
                         </ul>
                     </li>

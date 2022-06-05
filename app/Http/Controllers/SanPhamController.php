@@ -35,7 +35,7 @@ class SanPhamController extends Controller
             'id_danhmuc' => 'Danh mục',
             'hinhanh' => 'Hình ảnh',
             'mota' => 'Mô tả',
-            'chieucao' => 'Chiểu cao',
+            'chieucao' => 'Chiều cao',
         ])->validate();
 
         $file = $request->file('hinhanh');

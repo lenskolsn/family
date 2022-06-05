@@ -1,6 +1,6 @@
 <x-admin title="Danh mục bài viết">
     <div class="row">
-        @if (Session::has('messasge'))
+        @if (Session::has('message'))
             <p class="alert bg-success text-light">{{ Session::get('message') }}</p>
         @endif
         <div class="col-md-4">
