@@ -29,7 +29,9 @@ class HomeController extends Controller
     function trangtimkiem(Request $request)
     {
         $key = $request->key;
+        // dd($key);
         $sanpham = SanPham::where('tensanpham', 'like', '%' . $key . '%')->get();
+        // $select = "SELECT tensanpham FROM sanpham WHERE tensanpham LIKE % $key %";
         return view('trangtimkiem', compact('sanpham'));
     }
     function gioithieu()

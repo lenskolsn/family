@@ -45,10 +45,16 @@ class SanPhamController extends Controller
             $data['hinhanh'] = $filename;
         }
 
+        if ($id == null) {
+            $action = 'Thêm';
+        } else {
+            $action = 'Cập nhật';
+        }
+
         $sanpham = SanPham::updateOrCreate(['id' => $id], $data);
         $sanpham->save();
 
-        return redirect()->route('sanpham.danhsach');
+        return redirect()->route('sanpham.danhsach')->with('message', $action . ' sản phẩm thành công!');
     }
     function sua($id = null)
     {

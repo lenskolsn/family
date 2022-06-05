@@ -61,11 +61,31 @@
                     <li>
                         <a href="{{ route('danhmuc.danhsach') }}"> <i class="menu-icon ti-email"></i>Danh mục</a>
                     </li>
+                    <li>
+                        <a href="{{ route('banner.danhsach') }}"> <i class="menu-icon ti-email"></i>Banner</a>
+                    </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Sản phẩm</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a href="{{ route('sanpham.danhsach') }}">Danh
+                            <li><i class="menu-icon fa fa-line-chart"></i><a
+                                    href="{{ route('sanpham.danhsach') }}">Danh
+                                    sách</a>
+                            </li>
+                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ route('sanpham.them') }}">Thêm
+                                    mới</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Bài viết</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-line-chart">  </i><a
+                                    href="{{ route('danhmucbaiviet.danhsach') }}">Danh
+                                    mục bài viết</a>
+                            </li>
+                            <li><i class="menu-icon fa fa-line-chart"></i><a
+                                    href="{{ route('sanpham.danhsach') }}">Danh
                                     sách</a>
                             </li>
                             <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ route('sanpham.them') }}">Thêm

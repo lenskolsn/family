@@ -1,5 +1,8 @@
 <x-admin title="Danh sách sản phẩm">
     <div class="row">
+        @if (Session::has('message'))
+            <p class="alert bg-success text-light">{{ Session::get('message') }}</p>
+        @endif
         <div class="col-md-12 py-3">
             <table class="table">
                 <thead>
@@ -31,7 +34,8 @@
                                 <a href="{{ route('sanpham.chitiet', $item->id) }}"
                                     class="text-decoration btn btn-primary text-light"><i class="fas fa-eye"></i></a>
                                 <a href="{{ route('sanpham.sua', $item->id) }}"
-                                    class="text-decoration btn btn-warning text-light"><i class="fas fa-pen"></i></a>
+                                    class="text-decoration btn btn-warning text-light"><i
+                                        class="fas fa-pen"></i></a>
                                 <a href="{{ route('sanpham.xoa', $item->id) }}"
                                     class="text-decoration btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
