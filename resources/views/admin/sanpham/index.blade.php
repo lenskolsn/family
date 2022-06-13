@@ -4,6 +4,7 @@
             <p class="alert bg-success text-light">{{ Session::get('message') }}</p>
         @endif
         <div class="col-md-12 py-3">
+            {{ $sanpham->links() }}
             <table class="table">
                 <thead>
                     <tr class="bg-dark text-light">
@@ -23,12 +24,17 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->tensanpham }}</td>
                             <td>
-                                <img src="/storage/sanpham/{{ $item->hinhanh }}" class="img-thumbnail" width="100"
-                                    alt="">
+                                <img src="/storage/sanpham/{{ $item->hinhanh }}" width="100" class="img-thumbnail">
                             </td>
                             <td>{{ number_format($item->gia) }}</td>
                             {{-- <td>{!!$item->mota!!}</td> --}}
-                            <td>{{ $item->chieucao }} cm</td>
+                            <td>
+                                @if ($item->chieucao != null)
+                                    {{ $item->chieucao }} cm
+                                @else
+                                    Đang cập nhật...
+                                @endif
+                            </td>
                             <td>{{ $item->danhmuc->tendanhmuc }}</td>
                             <td class="text-center">
                                 <a href="{{ route('sanpham.chitiet', $item->id) }}"

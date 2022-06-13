@@ -89,9 +89,11 @@ section .category ul li:hover{
 }
 .product_img{
     overflow: hidden;
+    /* border: 2px solid red; */
 }
 .product_img img{
     transition: .5s;
+    /* height: 400px; */
 }
 .product_img img:hover{
     transform: scale(1.07);

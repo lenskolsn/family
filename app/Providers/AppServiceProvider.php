@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Banner;
 use App\Models\DanhMuc;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -26,7 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $danhmuc = DanhMuc::all();
-        View::share('danhmuc',$danhmuc);
+        $banner = Banner::all();
+        View::share(compact('danhmuc','banner'));
         Paginator::useBootstrap();
     }
 }

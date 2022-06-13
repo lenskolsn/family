@@ -26,6 +26,7 @@ Route::prefix('/')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('trangchu');
     Route::get('/gioi-thieu/{id?}', [HomeController::class, 'gioithieu'])->name('trangchu.gioithieu');
     Route::get('/bai-viet/{id?}', [HomeController::class, 'baiviet'])->name('trangchu.baiviet');
+    Route::get('/chi-tiet-bai-viet/{id?}', [HomeController::class, 'chitietbaiviet'])->name('trangchu.chitietbaiviet');
     Route::get('/lien-he/{id?}', [HomeController::class, 'lienhe'])->name('trangchu.lienhe');
     Route::get('/thong-tin/{id?}', [HomeController::class, 'thongtin'])->name('trangchu.thongtin');
     Route::get('/chi-tiet-san-pham/{id?}', [HomeController::class, 'chitietsanpham'])->name('trangchu.chitietsanpham');
@@ -42,6 +43,9 @@ Route::prefix('/')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'dangnhap'])->name('admin.dangnhap');
     Route::post('/', [AdminController::class, 'luu_dangnhap'])->name('admin.luu_dangnhap');
+
+    Route::get('/thong-tin', [AdminController::class, 'thongtin'])->name('admin.thongtin');
+    Route::post('/doi-avatar', [AdminController::class, 'doiavatar'])->name('admin.doiavatar');
 
     Route::get('/dang-ky', [AdminController::class, 'dangky'])->name('admin.dangky');
     Route::post('/dang-ky', [AdminController::class, 'luu_dangky'])->name('admin.luu_dangky');
@@ -66,12 +70,20 @@ Route::prefix('admin')->group(function () {
         Route::get('/xoa/{id?}', [SanPhamController::class, 'xoa'])->name('sanpham.xoa');
     });
 
+    Route::prefix('khach-hang')->middleware('auth')->group(function () {
+        Route::get('/', [KhachHangController::class, 'index'])->name('khachhang.danhsach');
+        Route::get('/them', [KhachHangController::class, 'them'])->name('khachhang.them');
+        Route::post('/luu/{id?}', [KhachHangController::class, 'luu'])->name('khachhang.luu');
+        Route::get('/sua/{id?}', [KhachHangController::class, 'sua'])->name('khachhang.sua');
+        Route::get('/chitiet/{id?}', [KhachHangController::class, 'chitiet'])->name('khachhang.chitiet');
+        Route::get('/xoa/{id?}', [KhachHangController::class, 'xoa'])->name('khachhang.xoa');
+        Route::post('/doi-avatar', [KhachHangController::class, 'doiavatar'])->name('khachhang.doiavatar');
+    });
+
     Route::prefix('banner')->middleware('auth')->group(function () {
         Route::get('/', [BannerController::class, 'index'])->name('banner.danhsach');
-        Route::get('/them', [BannerController::class, 'them'])->name('banner.them');
         Route::post('/luu/{id?}', [BannerController::class, 'luu'])->name('banner.luu');
         Route::get('/sua/{id?}', [BannerController::class, 'sua'])->name('banner.sua');
-        Route::get('/chitiet/{id?}', [BannerController::class, 'chitiet'])->name('banner.chitiet');
         Route::get('/xoa/{id?}', [BannerController::class, 'xoa'])->name('banner.xoa');
     });
 

@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->tendanhmuc }}</td>
-                            <td></td>
+                            <td>{{$item->sanpham->count()}}</td>
                             <td class="text-center">
                                 <a href="{{route('danhmuc.sua',$item->id)}}" class="text-decoration btn btn-warning text-light"><i
                                         class="fas fa-pen"></i></a>

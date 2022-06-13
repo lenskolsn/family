@@ -31,8 +31,22 @@ class BannerController extends Controller
             $data['hinhanh'] = $filename;
         }
 
+        if($id!=null){
+            $action = 'Thêm';
+        } else{
+            $action = 'Cập nhật';
+        }
+
         $banner = Banner::updateOrCreate(['id' => $id], $data);
         $banner->save();
-        return back();
+        return redirect()->route('banner.danhsach')->with('message', $action . ' dữ liệu thành công!');
+    }
+    function sua($id=null){
+        $banner = Banner::find($id);
+        return view('admin.banner.sua',compact('banner'));
+    }
+    function xoa($id=null){
+        Banner::destroy($id);
+        return back()->with('message', 'Xóa banner thành công!');
     }
 }

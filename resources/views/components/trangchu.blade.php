@@ -41,7 +41,8 @@
             <div class="row py-2">
                 <div class="col-md-3">
                     <div class="header_logo">
-                        <a href="{{route('trangchu')}}"><img src="http://maivangtet.com/wp-content/uploads/2021/10/maivangtet-300x100-1.png"
+                        <a href="{{ route('trangchu') }}"><img
+                                src="http://maivangtet.com/wp-content/uploads/2021/10/maivangtet-300x100-1.png"
                                 alt="" /></a>
                     </div>
                 </div>
@@ -54,18 +55,35 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-3 d-flex justify-content-end">
-                    <div class="header_login fw-bold">
+                <div class="col-md-3 d-flex justify-content-end align-items-center">
+                    <div class="header_login fw-bold ">
                         @if (Auth::guard('khachhang')->check())
-                            <a style="font-size: 14px;" href="{{route('trangchu.thongtin')}}" class="text-dark"><span class="fw-bold">Hi!
-                                    {{ Auth::guard('khachhang')->user()->name }}</span> /</a>
-                            <a style="font-size: 14px;" href="{{ route('trangchu.dangxuat') }}"
-                                class="text-dark">ĐĂNG XUẤT /</a>
+                            <div class="user-area dropdown float-right">
+                                <a style="font-size: 14px;" href="#" class="dropdown-toggle text-secondary"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img class="rounded-circle img-thumbnail" width="40"
+                                        src="/storage/avatar/{{ Auth::guard('khachhang')->user()->avatar }}">
+                                    {{ Auth::guard('khachhang')->user()->name }}
+                                </a>
+
+                                <div class="user-menu dropdown-menu">
+                                    <a style="font-size: 14px;" class="nav-link text-secondary"
+                                        href="{{ route('trangchu.thongtin') }}"><i class="fa fa-user"></i> Tài
+                                        khoản</a>
+
+                                    <a style="font-size: 14px;" class="nav-link text-secondary"
+                                        href="{{ route('trangchu.dangxuat') }}"><i class="fa fa-power-off"></i> Đăng
+                                        xuất</a>
+                                </div>
+                            </div>
                         @else
-                            <a style="font-size: 14px;" href="{{ route('trangchu.dangky') }}"
-                                class="text-dark">ĐĂNG KÝ /</a>
-                            <a style="font-size: 14px;" href="{{ route('trangchu.dangnhap') }}"
-                                class="text-dark">ĐĂNG NHẬP</a>
+                            <div>
+                                <a style="font-size: 14px;" href="{{ route('trangchu.dangky') }}"
+                                    class="text-secondary">ĐĂNG
+                                    KÝ /</a>
+                                <a style="font-size: 14px;" href="{{ route('trangchu.dangnhap') }}"
+                                    class="text-secondary">ĐĂNG NHẬP</a>
+                            </div>
                         @endif
                     </div>
                     <div class="header_cart ms-2 fw-bold">
@@ -161,6 +179,12 @@
         </div>
         <p class="text-center py-3 m-0 text-light" style="background: rgb(61, 184, 75);">VƯỜN MAI PHÚ THUẬN A</p>
     </footer>
+
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/home.js"></script>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">

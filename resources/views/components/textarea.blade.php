@@ -6,6 +6,5 @@ $value = $attributes['value'] ?? $old_value;
 ?>
 <div class="form-group">
     <label for="{{ $name }}">{{ $label }}</label>
-    <textarea class="form-control" id="{{ $name }}" name="{{ $name }}"
-        rows="3">{{ $value }}</textarea>
+    <textarea class="form-control" id="{{ $name }}" name="{{ $name }}" rows="3">{{ $value }}</textarea>
 </div>

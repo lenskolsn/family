@@ -1,5 +1,8 @@
     <x-admin title="Danh sách banner">
         <div class="row">
+            @if (Session::has('message'))
+                <p class="alert bg-success text-light">{{ Session::get('message') }}</p>
+            @endif
             <div class="col-md-4">
                 <form action="{{ route('banner.luu') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -22,13 +25,15 @@
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>
-                                    <img src="/storage/banner/{{ $item->hinhanh }}" class="rounded img-thumbnail" width="200"
-                                        alt="">
+                                    <img src="/storage/banner/{{ $item->hinhanh }}" class="rounded img-thumbnail"
+                                        width="200" alt="">
                                 </td>
                                 <td>{{ $item->created_at->diffForHumans() }}</td>
                                 <td>
-                                    <a href="" class="btn btn-warning text-light"><i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    <a href="{{ route('banner.sua', $item->id) }}" class="btn btn-warning text-light"><i
+                                            class="fas fa-edit"></i></a>
+                                    <a href="{{ route('banner.xoa', $item->id) }}" class="btn btn-danger"><i
+                                            class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="/vendors/jqvmap/dist/jqvmap.min.css">
 
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/css/prolife.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -56,39 +57,50 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href=""> <i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
+                        <a href="{{ route('admin.dashboard') }}"> <i
+                                class="menu-icon fab fa-asymmetrik"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="{{ route('danhmuc.danhsach') }}"> <i class="menu-icon ti-email"></i>Danh mục</a>
+                        <a href="{{ route('danhmuc.danhsach') }}"> <i class="menu-icon fas fa-list"></i>Danh mục</a>
                     </li>
                     <li>
-                        <a href="{{ route('banner.danhsach') }}"> <i class="menu-icon ti-email"></i>Banner</a>
+                        <a href="{{ route('banner.danhsach') }}"> <i class="menu-icon fas fa-image"></i>Banner</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Sản phẩm</a>
+                            aria-expanded="false"> <i class="menu-icon fas fa-shopping-basket"></i>Sản phẩm</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart"></i><a
-                                    href="{{ route('sanpham.danhsach') }}">Danh
+                            <li><i class="menu-icon fas fa-list"></i><a href="{{ route('sanpham.danhsach') }}">Danh
                                     sách</a>
                             </li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ route('sanpham.them') }}">Thêm
+                            <li><i class="menu-icon fas fa-plus"></i><a href="{{ route('sanpham.them') }}">Thêm
                                     mới</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Bài viết</a>
+                            aria-expanded="false"> <i class="menu-icon fas fa-shopping-basket"></i>Khách hàng</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-line-chart">  </i><a
+                            <li><i class="menu-icon fas fa-list"></i><a href="{{ route('khachhang.danhsach') }}">Danh
+                                    sách</a>
+                            </li>
+                            <li><i class="menu-icon fas fa-plus"></i><a href="{{ route('khachhang.them') }}">Thêm
+                                    mới</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon fas fa-feather-alt"></i>Bài viết</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fas fa-list"> </i><a
                                     href="{{ route('danhmucbaiviet.danhsach') }}">Danh
                                     mục bài viết</a>
                             </li>
-                            <li><i class="menu-icon fa fa-line-chart"></i><a
+                            <li><i class="menu-icon fas fa-list-alt"></i><a
                                     href="{{ route('baiviet.danhsach') }}">Danh
                                     sách</a>
                             </li>
-                            <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ route('baiviet.them') }}">Thêm
+                            <li><i class="menu-icon fas fa-plus"></i><a href="{{ route('baiviet.them') }}">Thêm
                                     mới</a></li>
                         </ul>
                     </li>
@@ -130,14 +142,16 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <img class="rounded-circle img-thumbnail" width="40"
-                                src="/storage/avatar/{{ Auth::user()->avatar }}">
+                                src="/storage/avatar/{{ Auth::user()->avatar }}"> {{ Auth::user()->name }} <i
+                                class="fas fa-caret-down"></i>
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                            <a class="nav-link" href="{{ route('admin.thongtin') }}"><i
+                                    class="fa fa-user"></i> Tài khoản</a>
 
                             <a class="nav-link" href="{{ route('admin.dangxuat') }}"><i
-                                    class="fa fa-power-off"></i> Logout</a>
+                                    class="fa fa-power-off"></i> Đăng xuất</a>
                         </div>
                     </div>
                 </div>
@@ -151,13 +165,15 @@
         </div>
 
         <div class="content mt-3">
-            <div class="col-md-12 bg-white rounded-1 shadow-sm">
+            <div class="col-md-12 bg-white rounded-1 shadow py-3">
                 {{ $slot }}
             </div>
         </div> <!-- .content -->
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
+    <script src="/js/admin.js"></script>
+    @yield('anhbaiviet')
 
     <script src="/vendors/jquery/dist/jquery.min.js"></script>
     <script src="/vendors/popper.js/dist/umd/popper.min.js"></script>

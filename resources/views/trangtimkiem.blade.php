@@ -20,7 +20,7 @@
                     @foreach ($sanpham as $item)
                         <div class="col-lg-3 col-md-4 col-sm-6 py-2">
                             <div class="product card m-auto">
-                                <div class="product_img">
+                                <div class="product_img" style="height: 300px;">
                                     <a href="{{ route('trangchu.chitietsanpham', $item->id) }}"><img
                                             src="/storage/sanpham/{{ $item->hinhanh }}" class="card-img-top"
                                             alt="{{ $item->tensanpham }}"></a>

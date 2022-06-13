@@ -48,21 +48,21 @@
             <form action="{{ route('trangchu.luu_dangky') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <input type="text" placeholder="Họ tên: " name="name">
+                    <input type="text" value="{{old('name')}}" placeholder="Họ tên: " name="name">
                     <i class="icon_input fas fa-user"></i>
                 </div>
                 @error('name')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
                 <div class="form-group">
-                    <input type="text" placeholder="Email:" name="email">
+                    <input type="text" value="{{old('email')}}" placeholder="Email:" name="email">
                     <i class="icon_input fas fa-envelope"></i>
                 </div>
                 @error('email')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
                 <div class="form-group">
-                    <input type="text" placeholder="Địa chỉ:" name="address">
+                    <input type="text" value="{{old('address')}}" placeholder="Địa chỉ:" name="address">
                     <i class="icon_input fas fa-location-arrow"></i>
                 </div>
                 @error('address')
@@ -70,14 +70,14 @@
                 @enderror
                 <div class="mt-3 px-1" style="border-bottom: 3px solid rgb(61, 184, 75);">
                     <label for="" class="form-label text-secondary">Giới tính</label> <br>
-                    <input type="radio" value="0" name="male"> Nam
+                    <input checked type="radio" value="0" name="male"> Nam
                     <input type="radio" value="1" name="male"> Nữ
                 </div>
                 @error('male')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
                 <div class="form-group">
-                    <input type="text" placeholder="Số điện thoại:" name="phone">
+                    <input type="text" value="{{old('phone')}}" placeholder="Số điện thoại:" name="phone">
                     <i class="icon_input fas fa-phone"></i>
                 </div>
                 @error('phone')

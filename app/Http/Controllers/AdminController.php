@@ -22,7 +22,7 @@ class AdminController extends Controller
             $request->session()->regenerate();
 
             return redirect()->route('admin.dashboard');
-        } else{
+        } else {
             return back();
         }
     }
@@ -45,8 +45,30 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
-    function dangxuat(){
+    function dangxuat()
+    {
         Auth::logout();
         return redirect()->route('admin.dangnhap');
+    }
+    function thongtin()
+    {
+        return view('admin.taikhoan');
+    }
+    function doiavatar(Request $request)
+    {
+        $data = $request->all();
+        unset($data['_token']);
+
+        $file = $request->file('avatar');
+        if ($file != null) {
+            $filename = $file->hashName();
+            $file->storeAs('/public/avatar', $filename);
+            $data['avatar'] = $filename;
+            $user = User::find(Auth::user()->id);
+            $user->avatar = $filename;
+            $user->save();
+        }
+
+        return back()->with('message', 'Cập nhật avatar thành công!');
     }
 }

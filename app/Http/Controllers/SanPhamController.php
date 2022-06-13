@@ -12,7 +12,7 @@ class SanPhamController extends Controller
 {
     function index()
     {
-        $sanpham = SanPham::orderByDesc('id')->get();
+        $sanpham = SanPham::orderByDesc('id')->paginate(4);
         return view('admin.sanpham.index', compact('sanpham'));
     }
     function them()
@@ -29,13 +29,13 @@ class SanPhamController extends Controller
             'id_danhmuc' => 'required',
             'gia' => 'required',
             'mota' => 'required',
-            'chieucao' => 'required',
+            // 'chieucao' => 'required',
         ], [], [
             'tensanpham' => 'Tên sản phẩm',
             'id_danhmuc' => 'Danh mục',
             'hinhanh' => 'Hình ảnh',
             'mota' => 'Mô tả',
-            'chieucao' => 'Chiều cao',
+            // 'chieucao' => 'Chiều cao',
         ])->validate();
 
         $file = $request->file('hinhanh');

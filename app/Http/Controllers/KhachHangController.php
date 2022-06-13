@@ -10,6 +10,28 @@ use Illuminate\Support\Facades\Validator;
 
 class KhachHangController extends Controller
 {
+    function index()
+    {
+        $khachhang = KhachHang::all();
+        return view('admin.khachhang.index', compact('khachhang'));
+    }
+    function doiavatar(Request $request)
+    {
+        $data = $request->all();
+        unset($data['_token']);
+
+        $file = $request->file('avatar');
+        if ($file != null) {
+            $filename = $file->hashName();
+            $file->storeAs('/public/avatar', $filename);
+            $data['avatar'] = $filename;
+            $user = KhachHang::find(Auth::guard('khachhang')->user()->id);
+            $user->avatar = $filename;
+            $user->save();
+        }
+
+        return back()->with('message', 'Cập nhật avatar thành công!');
+    }
     function dangnhap()
     {
         return view('khachhang.dangnhap');

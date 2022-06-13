@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BaiViet;
 use App\Models\DanhMuc;
 use App\Models\SanPham;
 use Illuminate\Http\Request;
@@ -40,13 +41,20 @@ class HomeController extends Controller
     }
     function baiviet()
     {
-        return view('baiviet');
+        $baiviet = BaiViet::all();
+        return view('baiviet', compact('baiviet'));
+    }
+    function chitietbaiviet($id = null)
+    {
+        $baiviet = BaiViet::find($id);
+        return view('chitietbaiviet', compact('baiviet'));
     }
     function lienhe()
     {
         return view('lienhe');
     }
-    function thongtin(){
+    function thongtin()
+    {
         return view('khachhang.thongtin');
     }
 }
