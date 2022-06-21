@@ -17,7 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="/login_admin/css/style.css">
 
-    <title>Login #8</title>
+    <title>Admin Register</title>
 </head>
 
 <body>

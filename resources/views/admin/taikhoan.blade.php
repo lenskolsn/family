@@ -7,11 +7,12 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic text-center">
-                    <form action="{{ route('admin.doiavatar') }}" method="post" class="mt-1" enctype="multipart/form-data">
+                    <form action="{{ route('admin.doiavatar') }}" method="post" class="mt-1"
+                        enctype="multipart/form-data">
                         @csrf
                         <label style="cursor: pointer;" for="uploadImage">
-                            <img id="image" src="/storage/avatar/{{ Auth::user()->avatar }}"
-                                class="img-thumbnail" width="200" height="200">
+                            <img id="image" src="/storage/avatar/{{ Auth::user()->avatar }}" class="img-thumbnail"
+                                width="200" height="200">
                         </label>
                         <input type="file" class="d-none" id="uploadImage" name="avatar">
                         <button class="btn btn-sm btn-success"><i class="fas fa-save fs-5"></i></button>

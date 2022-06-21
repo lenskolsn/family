@@ -47,7 +47,8 @@ class HomeController extends Controller
     function chitietbaiviet($id = null)
     {
         $baiviet = BaiViet::find($id);
-        return view('chitietbaiviet', compact('baiviet'));
+        $baivietmoi = BaiViet::orderByDesc('id')->get();
+        return view('chitietbaiviet', compact('baiviet', 'baivietmoi'));
     }
     function lienhe()
     {

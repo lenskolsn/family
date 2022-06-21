@@ -111,3 +111,57 @@ section .category ul li:hover{
     font-size: 15px;
     padding: 10px;
 }
+/* Gọi Ngay */
+.goi-ngay{
+    background: rgba(255, 0, 0, 0.732);
+    color: white;
+    display: inline-block;
+    padding: 0px 15px 0px 0px;
+    border-radius: 20px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+.goi-ngay .phone {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    background: red;
+    /* margin-right: 5px; */
+    border-radius: 50%;
+    animation: rorate infinite  alternate;
+    animation-duration: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.goi-ngay .phone::before{
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation: scale 1s infinite alternate-reverse;
+    z-index: -2;
+}
+@keyframes scale {
+    0%{
+        /* transform: scale(1.1); */
+        background: rgba(255, 0, 0, 0.766);
+    }
+    100%{
+        transform: scale(1.5);
+        background: rgba(255, 0, 0, 0.500);
+    }
+}
+@keyframes rorate {
+    0%{
+        transform: rotate(18deg);
+    }
+    100%{
+        transform: rotate(-18deg);
+    }
+}

@@ -9,4 +9,8 @@ class DanhMucBaiViet extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function baiviet()
+    {
+        return $this->hasMany(BaiViet::class, 'id_danhmuc', 'id');
+    }
 }

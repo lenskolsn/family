@@ -17,6 +17,12 @@
 </head>
 
 <body>
+    <div class="goi-ngay d-flex align-items-center">
+        <div class="phone">
+            <i class="fas fa-phone"></i>
+        </div>
+        <span class="ms-2">Gọi Ngay</span>
+    </div>
     <!-- Top -->
     <div class="top">
         <div class="container">
@@ -42,7 +48,7 @@
                 <div class="col-md-3">
                     <div class="header_logo">
                         <a href="{{ route('trangchu') }}"><img
-                                src="http://maivangtet.com/wp-content/uploads/2021/10/maivangtet-300x100-1.png"
+                                src="https://b-f4-zpcloud.zdn.vn/1321182270169760295/6606f4609cd75c8905c6.jpg"
                                 alt="" /></a>
                     </div>
                 </div>
@@ -94,7 +100,7 @@
         </div>
     </header>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border border-1">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border border-1 shadow-sm">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

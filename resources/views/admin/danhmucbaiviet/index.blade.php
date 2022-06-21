@@ -26,7 +26,7 @@
                         <tr>
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->tendanhmuc }}</td>
-                            <td></td>
+                            <td>{{ $item->baiviet->count() }}</td>
                             <td>{{ $item->created_at->diffForHumans() }}</td>
                             <td>
                                 <a href="{{ route('danhmucbaiviet.sua', $item->id) }}"

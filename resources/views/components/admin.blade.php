@@ -66,6 +66,9 @@
                     <li>
                         <a href="{{ route('banner.danhsach') }}"> <i class="menu-icon fas fa-image"></i>Banner</a>
                     </li>
+                    <li>
+                        <a href="#"> <i class="menu-icon fas fa-shopping-cart"></i>Đơn hàng</a>
+                    </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fas fa-shopping-basket"></i>Sản phẩm</a>
@@ -77,9 +80,21 @@
                                     mới</a></li>
                         </ul>
                     </li>
+
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fas fa-shopping-basket"></i>Khách hàng</a>
+                            aria-expanded="false"> <i class="menu-icon fas fa-user-lock"></i>Nhân viên</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fas fa-list"></i><a href="{{ route('nhanvien.danhsach') }}">Danh
+                                    sách</a>
+                            </li>
+                            <li><i class="menu-icon fas fa-plus"></i><a href="{{ route('nhanvien.them') }}">Thêm
+                                    mới</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false"> <i class="menu-icon fas fa-users"></i>Khách hàng</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fas fa-list"></i><a href="{{ route('khachhang.danhsach') }}">Danh
                                     sách</a>

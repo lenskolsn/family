@@ -5,7 +5,7 @@
             @if (Session::has('message'))
                 <p class="alert bg-success text-light mt-2">{{ Session::get('message') }}</p>
             @endif
-            <div class="profile-sidebar d-flex py-2">
+            <div class="profile-sidebar d-flex align-items-center py-2">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic text-center">
                     <form action="{{ route('khachhang.doiavatar') }}" method="post" class="mt-1"

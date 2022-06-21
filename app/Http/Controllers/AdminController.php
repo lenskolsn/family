@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
@@ -34,6 +35,20 @@ class AdminController extends Controller
     {
         $data = $request->all();
         unset($data['_token']);
+
+        $validator = Validator::make($data, [
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
+            'confirm_password' => 'required|same:password',
+        ], [], [
+            'name' => 'Họ tên',
+            'email' => 'Email',
+            'password' => 'Mật khẩu',
+            'confirm_password' => 'Nhập lại mật khẩu',
+        ])->validate();
+
+        unset($data['confirm_password']);
 
         $user = User::updateOrCreate($data);
         $user->password = Hash::make($request->password);
